@@ -1,0 +1,10 @@
+// For sequelize CLI
+
+const path = require('path')
+module.exports = {
+  'seeders-path': path.resolve('src/db', 'seeders'),
+  'migrations-path': path.resolve('src/db', 'migrations'),
+  'models-path': path.resolve('src/db', 'models'),
+  // Sequelize no longer accepts ts configs. See https://github.com/sequelize/cli/issues/1063
+  config: path.resolve('build/db', 'migration-config.js'),
+}
