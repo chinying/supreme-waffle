@@ -10,6 +10,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
 // Middlewares to log requests/responses
 import { ErrorMiddleware, HealthcheckMiddleware } from '../middlewares'
+import apiV1Routes from '../routes'
 
 // Celebrate/Joi Validation
 import { isCelebrateError } from 'celebrate'
@@ -27,7 +28,7 @@ const expressApp = ({ app }: { app: express.Application }): void => {
   app.use('/ping', HealthcheckMiddleware.ping)
 
   // Application Routes
-  // app.use('/api', apiV1Routes)
+  app.use('/api', apiV1Routes)
 
   // Error handlers
   // Attach error handler for celebrate validation
