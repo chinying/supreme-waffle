@@ -16,7 +16,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['build', 'dist', 'node_modules', 'db'],
+  ignorePatterns: ['build', 'dist', 'node_modules', 'db', '.eslintrc.js'],
   rules: {
     // camelcase: 'off',
     '@typescript-eslint/no-var-requires': 'off',
@@ -24,35 +24,35 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 
-    "@typescript-eslint/naming-convention": [
-      "error",
+    '@typescript-eslint/naming-convention': [
+      'error',
       {
-        "selector": "default",
-        "format": ["camelCase"],
+        selector: 'default',
+        format: ['camelCase'],
       },
       {
-        "selector": "variable",
-        "format": ["camelCase", "UPPER_CASE"],
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE'],
       },
       {
-        "selector": "variable",
-        "modifiers": ["exported"],
-        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        selector: 'variable',
+        modifiers: ['exported'],
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
       },
       {
-        "selector": "parameter",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
+        selector: 'parameter',
+        format: ['camelCase'],
+        leadingUnderscore: 'allow',
       },
       {
-        "selector": "memberLike",
-        "modifiers": ["private"],
-        "format": ["camelCase"],
-        "leadingUnderscore": "require"
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['camelCase'],
+        leadingUnderscore: 'require',
       },
       {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
+        selector: 'typeLike',
+        format: ['PascalCase'],
       },
     ],
 
