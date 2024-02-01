@@ -16,6 +16,10 @@ export class User extends Model<
 > {
   @PrimaryKey
   @AllowNull(false)
-  @Column(DataType.STRING(255))
+  @Column(DataType.STRING(80))
   id!: string
+
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
+  email!: string
 }
