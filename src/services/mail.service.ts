@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+
 import { ConfigService } from './config.service'
 
 const configService = new ConfigService()

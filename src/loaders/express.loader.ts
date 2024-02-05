@@ -6,14 +6,14 @@
 require('module-alias/register')
 
 // Express
-import express, { Request, Response, NextFunction } from 'express'
+// Celebrate/Joi Validation
+import { isCelebrateError } from 'celebrate'
+import express, { NextFunction, Request, Response } from 'express'
 import morgan from 'morgan'
+
 // Middlewares to log requests/responses
 import { ErrorMiddleware, HealthcheckMiddleware } from '../middlewares'
 import apiV1Routes from '../routes'
-
-// Celebrate/Joi Validation
-import { isCelebrateError } from 'celebrate'
 const expressApp = ({ app }: { app: express.Application }): void => {
   // Take the leftmost entry in X-Forwarded-* header to get user's IP address
   // since the server is sitting behind CloudFlare's proxy and AWS loadbalancer
