@@ -32,6 +32,14 @@ export interface ConfigSchema {
     senderName: string
     postmarkApiKey: string
     email: string
+    aws: {
+      host: string
+      port: number
+      auth: {
+        user: string
+        pass: string
+      }
+    }
   }
 }
 
@@ -180,6 +188,36 @@ export const schema: Schema<ConfigSchema> = {
       env: 'POSTMARK_API_KEY',
       format: 'required-string',
       default: '',
+    },
+    aws: {
+      host: {
+        doc: 'Amazon SES SMTP endpoint.',
+        default: '',
+        env: 'AWS_SES_HOST',
+        format: 'required-string',
+      },
+      port: {
+        doc: 'Amazon SES SMTP port, defaults to 465',
+        default: 465,
+        env: 'AWS_SES_PORT',
+        format: 'port',
+      },
+      auth: {
+        user: {
+          doc: 'SMTP username',
+          default: '',
+          env: 'AWS_SES_USER',
+          format: 'required-string',
+          sensitive: true,
+        },
+        pass: {
+          doc: 'SMTP password',
+          default: '',
+          env: 'AWS_SES_PASS',
+          format: 'required-string',
+          sensitive: true,
+        },
+      },
     },
   },
 }
