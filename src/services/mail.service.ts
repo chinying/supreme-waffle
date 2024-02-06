@@ -36,7 +36,7 @@ class MailClient {
   async sendMail(input: SendMailInput): Promise<void> {
     return new Promise((resolve, reject) => {
       const mailOptions: nodemailer.SendMailOptions = {
-        from: 'noreply@scamshield.gov.sg',
+        from: 'noreply@example.com',
         to: input.recipients,
         subject: input.subject,
         html: input.body,

@@ -14,6 +14,7 @@ import morgan from 'morgan'
 // Middlewares to log requests/responses
 import { ErrorMiddleware, HealthcheckMiddleware } from '../middlewares'
 import apiV1Routes from '../routes'
+
 const expressApp = ({ app }: { app: express.Application }): void => {
   // Take the leftmost entry in X-Forwarded-* header to get user's IP address
   // since the server is sitting behind CloudFlare's proxy and AWS loadbalancer
