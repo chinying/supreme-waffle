@@ -1,3 +1,6 @@
+require('module-alias/register')
+require('dotenv').config()
+
 import { ConfigService } from '@services/config.service'
 
 const configService = new ConfigService()
