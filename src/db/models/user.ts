@@ -1,5 +1,6 @@
 import {
   AllowNull,
+  AutoIncrement,
   Column,
   DataType,
   Model,
@@ -15,9 +16,10 @@ export class User extends Model<
   InferModelCreationAttributes<User>
 > {
   @PrimaryKey
+  @AutoIncrement
   @AllowNull(false)
-  @Column(DataType.STRING(80))
-  id!: string
+  @Column(DataType.BIGINT)
+  id!: number
 
   @AllowNull(false)
   @Column(DataType.STRING(255))
