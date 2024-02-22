@@ -13,6 +13,7 @@
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.9",
+    "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.35.2",
     "sequelize-cli": "^6.6.2",
@@ -47,9 +48,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-no-fix": "tsc --noEmit && eslint --ext .js,.ts --cache .",
     "lint": "npm run lint-no-fix -- --fix",
+    "preload": "echo ENV=${ENV:-'development'} && node -r dotenv/config --",
     "migration:generate": "sequelize-cli migration:generate",
-    "migration:run": "pnpm build && pnpm preload sequelize-cli db:migrate",
-    "migration:revert": "pnpm build && npm run preload sequelize-cli db:migrate:undo"
+    "migration:run": "npm run build && sequelize-cli db:migrate",
+    "migration:revert": "npm run build && npm run preload && sequelize-cli db:migrate:undo"
   },
   "author": "",
   "license": "MIT",
